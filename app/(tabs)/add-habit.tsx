@@ -1,4 +1,4 @@
-import { databases, DATABSE_ID, HABITS_COLLECTION_ID } from "@/lib/appwrite";
+import { DATABASE_ID, databases, HABITS_COLLECTION_ID } from "@/lib/appwrite";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -29,7 +29,7 @@ const AddHabitScreen = () => {
 
     try {
       await databases.createDocument(
-        DATABSE_ID,
+        DATABASE_ID,
         HABITS_COLLECTION_ID,
         ID.unique(),
         {
