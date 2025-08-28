@@ -136,10 +136,12 @@ const StreaksScreen = () => {
           currentStreak = 1;
         }
       } else {
-        if (currentStreak > bestStreak) bestStreak = currentStreak;
-        streak = currentStreak;
-        lastDate = date;
+        currentStreak = 1;
       }
+
+      if (currentStreak > bestStreak) bestStreak = currentStreak;
+      streak = currentStreak;
+      lastDate = date;
     });
 
     return { streak, bestStreak, total };
@@ -150,7 +152,7 @@ const StreaksScreen = () => {
     return { habit, streak, bestStreak, total };
   });
 
-  const rankedHabits = habitStreaks.sort((a, b) => a.bestStreak - b.bestStreak);
+  const rankedHabits = habitStreaks.sort((a, b) => b.bestStreak - a.bestStreak);
 
   const badgeStyles = [styles.badge1, styles.badge2, styles.badge3];
   return (
